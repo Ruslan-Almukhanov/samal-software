@@ -1,0 +1,40 @@
+.item {
+  margin-bottom: 10px;
+  background-color: rgb(61, 157, 242);
+  padding: 15px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &::before {
+    content: "";
+    background-image: url("/images/train.svg");
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .delete {
+    background-image: url("/images/delete.svg");
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .edit {
+    background-image: url("/images/edit.svg");
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+  }
+}

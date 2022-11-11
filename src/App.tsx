@@ -1,5 +1,5 @@
-import Layout from "./components/Layout";
 import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
 import Locomotives from "pages/Locomotives";
 import Map from "./pages/Map";
 import "./App.scss";

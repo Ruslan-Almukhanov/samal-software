@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useState as useGlobalState } from "@hookstate/core";
 import store from "store";
@@ -35,7 +35,7 @@ const Locomotives = () => {
     }
   }, [selectedLocomotive]);
 
-  const onSubmitForm = (e: any) => {
+  const onSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, series, amount } = getValues();
     const newData = {
@@ -45,7 +45,6 @@ const Locomotives = () => {
       coordinates: location,
       id: selectedLocomotive ? selectedLocomotive.id : getRandomId(),
     };
-    console.log(newData);
 
     globalState.set((prev) => {
       const { locomotives } = prev;

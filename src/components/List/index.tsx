@@ -1,7 +1,7 @@
 import { useState as useGlobalState } from "@hookstate/core";
+import Locomotive from "components/Locomotive";
 import store from "../../store";
-import { Locomotive } from "../../types";
-import styles from "./List.module.scss";
+import { Locomotive as LocomotiveType } from "../../types";
 
 const List = () => {
   const globalState = useGlobalState(store);
@@ -18,7 +18,7 @@ const List = () => {
     });
   };
 
-  const selectHandler = (selectedLocomotive: Locomotive) => {
+  const selectHandler = (selectedLocomotive: LocomotiveType) => {
     globalState.set((prev) => {
       return {
         ...prev,
@@ -27,19 +27,14 @@ const List = () => {
     });
   };
   return (
-    <ul className={styles.list}>
+    <ul>
       {locomotives.map((locomotive) => (
-        <li key={locomotive.id}>
-          {locomotive.name}
-          <span
-            className={styles.delete}
-            onClick={() => deleteHandler(locomotive.id)}
-          />
-          <span
-            className={styles.edit}
-            onClick={() => selectHandler(locomotive)}
-          />
-        </li>
+        <Locomotive
+          key={locomotive.id}
+          locomotive={locomotive}
+          selectHandler={selectHandler}
+          deleteHandler={deleteHandler}
+        />
       ))}
     </ul>
   );
